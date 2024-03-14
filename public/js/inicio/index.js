@@ -79,7 +79,6 @@ function countDataLeads(desde, hasta){
                 matri = response.matriculados['matriculados']
             }
             porcentaje = (matri / meta)*100
-            console.log('porcentaje : ', porcentaje);
             if(meta < matri){
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
@@ -100,7 +99,7 @@ function countDataLeads(desde, hasta){
     });
 }
 
-/* setInterval(btn, 5000); */
+setInterval(btn, 30000);
 metaLeads()
 
 function btn(){
