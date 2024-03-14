@@ -1,0 +1,7 @@
+#-------------------------
+# Composer
+#-------------------------
+vendor/
+composer.lock
+App/config
+Core/Util.php
