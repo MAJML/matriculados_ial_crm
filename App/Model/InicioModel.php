@@ -65,7 +65,7 @@ class InicioModel extends Model
         Select 'repetido' as name, 'repetido' as last_name, 'CIERRE' as estado,'0' as user_id_register, cliente_id, created_at 
         from cliente_matriculas where date(created_at) between '".$desde."' and '".$hasta."'
         ) as J1
-        Order by J1.created_at desc");
+        Order by J1.created_at desc limit 50");
         $query->execute();
         return $query->fetchAll();
     }
