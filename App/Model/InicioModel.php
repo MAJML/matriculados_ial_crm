@@ -9,7 +9,7 @@ class InicioModel extends Model
     public function countMatriculados($desde, $hasta)
     {
         $query = $this->db->prepare("SELECT count(*) + 
-        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '2024-02-16' and '2024-03-15') as matriculados
+        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '".$desde."' and '".$hasta."') as matriculados
         from clientes CL
         left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
         where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=4 
@@ -27,8 +27,7 @@ class InicioModel extends Model
 
     public function countPerdidos($desde, $hasta)
     {
-        $query = $this->db->prepare("SELECT count(*) + 
-        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '2024-02-16' and '2024-03-15') as perdidos
+        $query = $this->db->prepare("SELECT count(*) as perdidos
         from clientes CL
         left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
         where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=6 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
@@ -38,8 +37,7 @@ class InicioModel extends Model
 
     public function countNoContactados($desde, $hasta)
     {
-        $query = $this->db->prepare("SELECT count(*) + 
-        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '2024-02-16' and '2024-03-15') as noContactados
+        $query = $this->db->prepare("SELECT count(*) as noContactados
         from clientes CL
         left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
         where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=5 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
