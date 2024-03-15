@@ -29,8 +29,7 @@ class InicioModel extends Model
     {
         $query = $this->db->prepare("SELECT count(*) as perdidos
         from clientes CL
-        left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
-        where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=6 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
+        where CL.deleted_at is null and CL.estado_id=6 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
         $query->execute();
         return $query->fetch();
     }
@@ -39,8 +38,7 @@ class InicioModel extends Model
     {
         $query = $this->db->prepare("SELECT count(*) as noContactados
         from clientes CL
-        left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
-        where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=5 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
+        where CL.deleted_at is null and CL.estado_id=5 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
         $query->execute();
         return $query->fetch();
     }
