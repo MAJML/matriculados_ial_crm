@@ -109,7 +109,7 @@ function asesores_seguimiento(desde, hasta){
             $("#content_asesores div").remove()
         },
         success:function(response){
-            console.log(response);
+            /* console.log(response); */
 
             if(response){
                 for (let i = 0; i < response.length; i++) {
