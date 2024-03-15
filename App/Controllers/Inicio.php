@@ -43,4 +43,12 @@ class Inicio
         View::renderJson(['matriculados' => $matriculados, 'perdidos' => $perdidos, 'noContactados' => $noContactados, 'leadsEntrantes' => $leadsEntrantes]);
     }
 
+    public function dataAsesoresSeguimiento()
+    {
+        $desde = $_POST['desde'];
+        $hasta = $_POST['hasta'];
+        $seguimiento = $this->model->dataAsesoresSeguimiento($desde, $hasta);
+        View::renderJson($seguimiento);
+    }
+
 }

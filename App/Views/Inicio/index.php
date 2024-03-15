@@ -128,12 +128,12 @@
         </div>
 
         <div class="col-span-2">
-            <div class="px-4">
+            <div class="px-4 mb-20">
                 <div class="flex-auto overflow-y-scroll rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5"
                     style="height:700px;">
-                    <div class="p-4">
+                    <div class="p-4" id="content_asesores">
 
-                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                        <!-- <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
                             <div
                                 class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                 <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none"
@@ -144,32 +144,17 @@
                                         d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
                                 </svg>
                             </div>
-                            <div>
-                                <a href="#" class="font-semibold text-gray-900">
-                                    Analytics
+                            <div class="w-full">
+                                <a href="#" class="font-semibold text-gray-900">Analytics
                                     <span class="absolute inset-0"></span>
                                 </a>
-                                <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
+                                <div class="flex w-full justify-between">
+                                    <p class="mt-1 text-gray-600">Get a better understanding of yo</p>
+                                    <p class="text-gray-400">gaaaa</p>
+                                </div>
+                                
                             </div>
-                        </div>
-
-                        <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
-                            <div
-                                class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" fill="none"
-                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-                                </svg>
-                            </div>
-                            <div>
-                                <a href="#" class="font-semibold text-gray-900">
-                                    Engagement
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
-                            </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

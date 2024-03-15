@@ -52,4 +52,22 @@ class InicioModel extends Model
         return $query->fetch();
     }
 
+    public function dataAsesoresSeguimiento($desde, $hasta)
+    {
+        $query = $this->db->prepare("SELECT
+                J1.*
+        From (
+        select US.name, US.last_name, EST.name as estado, CLS.user_id_register, CLS.cliente_id, CLS.created_at from cliente_seguimientos CLS
+        left join users US on US.id=CLS.user_id_register
+        inner join estados EST on EST.id=CLS.estado_id
+        where CLS.deleted_at is null and US.deleted_at is null and CLS.estado_id in(4,5,6) and date(CLS.created_at) between '".$desde."' and '".$hasta."'
+        Union all
+        Select 'repetido' as name, 'repetido' as last_name, 'CIERRE' as estado,'0' as user_id_register, cliente_id, created_at 
+        from cliente_matriculas where date(created_at) between '".$desde."' and '".$hasta."'
+        ) as J1
+        Order by J1.created_at desc");
+        $query->execute();
+        return $query->fetchAll();
+    }
+
 }
