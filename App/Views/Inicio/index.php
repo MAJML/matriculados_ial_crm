@@ -55,7 +55,7 @@
         <div class="col-span-3">
 
             <div class="w-full bg-white flex items-center justify-center px-5 py-5">
-                <div class="bg-green-200 text-black-500 rounded shadow-xl py-5 px-5 w-full">
+                <div class="bg-gray-100 text-black-500 rounded shadow-xl py-5 px-5 w-full">
                     <div class="flex w-full">
                         <h3 class="text-lg font-semibold leading-tight flex-1">TOTAL LEADS MATRICULADOS</h3>
                         <div class="relative h-5 leading-none">
