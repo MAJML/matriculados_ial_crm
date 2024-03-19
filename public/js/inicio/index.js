@@ -79,17 +79,19 @@ function countDataLeads(desde, hasta){
                 var matri = response.matriculados['matriculados']
             }
             porcentaje = (matri / meta)*100
-            if(meta < matri){
+            if(meta<matri){
                 console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
                 console.log('el matri es mayor');
+                console.log('esto es el porcentaje: ', Math.round(porcentaje));
                 console.log('===========================');
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
-            }else if(meta == matri){
+            }else if(meta==matri){
                 console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
                 console.log('el matri es igual al meta');
+                console.log('esto es el porcentaje: ', Math.round(porcentaje));
                 console.log('===========================');
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('Completado')
@@ -217,4 +219,5 @@ function mostrarTiempoRegistrado(fechaRegistro) {
 // Ejemplo de uso:
 let fechaRegistro = '2024-03-15 11:56:47'; // La fecha de registro en formato 'Y-M-D H:M:S'
 let tiempoRegistrado = mostrarTiempoRegistrado(fechaRegistro);
-console.log('tiempo real :', tiempoRegistrado); // Muestra el texto correspondiente según la lógica establecida
+/* console.log('tiempo real :', tiempoRegistrado); 
+ */
