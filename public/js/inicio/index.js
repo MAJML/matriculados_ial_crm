@@ -74,20 +74,33 @@ function countDataLeads(desde, hasta){
             /* console.log(response); */
             /* var meta=10 */
             if(response.matriculados['matriculados'] == "" || response.matriculados['matriculados'] == null){
-                matri = 0
+                var matri = 0
             }else{
-                matri = response.matriculados['matriculados']
+                var matri = response.matriculados['matriculados']
             }
             porcentaje = (matri / meta)*100
             if(meta < matri){
+                console.log('esto es el meta : ', meta);
+                console.log('esto es el matri : ', matri);
+                console.log('el matri es mayor');
+                console.log('===========================');
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
             }else if(meta == matri){
+                console.log('esto es el meta : ', meta);
+                console.log('esto es el matri : ', matri);
+                console.log('el matri es igual al meta');
+                console.log('===========================');
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('Completado')
             }else{
                 $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
                 porcentajeMatriculado.update(Math.round(porcentaje))
+                console.log('esto es el meta : ', meta);
+                console.log('esto es el matri : ', matri);
+                console.log('esto es el else xd');
+                console.log('esto es el porcentaje: ', Math.round(porcentaje));
+                console.log('===========================');
             }
             countUpMatriculados.update(matri)
             countUpPerdidos.update(response.perdidos['perdidos'])
