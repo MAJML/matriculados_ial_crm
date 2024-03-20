@@ -1,4 +1,4 @@
-console.log('otro cambio');
+console.log('otro cambio 222');
 var meta = null;
 $(function() {
     moment.locale('es');
@@ -82,7 +82,7 @@ function countDataLeads(desde, hasta){
             porcentaje = (matri / meta)*100
             var mensaje;
             
-            switch (true) {
+            /* switch (true) {
                 case matri > 5:
                     mensaje = "El número es mayor que 5";
                     break;
@@ -94,33 +94,33 @@ function countDataLeads(desde, hasta){
                     break;
                 default:
                     mensaje = "El número no se puede comparar";
-            }
+            } */
             
 
             if(meta<matri){
-                console.log('esto es el meta : ', meta);
+                /* console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
                 console.log('el matri es mayor');
                 console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('===========================');
+                console.log('==========================='); */
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
             }else if(meta==matri){
-                console.log('esto es el meta : ', meta);
+                /* console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
                 console.log('el matri es igual al meta');
                 console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('===========================');
+                console.log('==========================='); */
                 $("#barraMatriculado").css({"width": "100%"});
                 $("#porcentajeMatriculado").html('Completado')
             }else{
                 $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
                 porcentajeMatriculado.update(Math.round(porcentaje))
-                console.log('esto es el meta : ', meta);
+                /* console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
                 console.log('esto es el else xd');
                 console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('===========================');
+                console.log('==========================='); */
             }
             countUpMatriculados.update(matri)
             countUpPerdidos.update(response.perdidos['perdidos'])
