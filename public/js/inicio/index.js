@@ -1,4 +1,4 @@
-console.log('esto es el inicio js');
+console.log('otro cambio');
 var meta = null;
 $(function() {
     moment.locale('es');
@@ -65,6 +65,7 @@ function metaLeads(){
 }
 
 function countDataLeads(desde, hasta){
+    metaLeads()
     $.ajax({
         type:"POST",
         dataType:"json",
@@ -79,6 +80,23 @@ function countDataLeads(desde, hasta){
                 var matri = response.matriculados['matriculados']
             }
             porcentaje = (matri / meta)*100
+            var mensaje;
+            
+            switch (true) {
+                case matri > 5:
+                    mensaje = "El número es mayor que 5";
+                    break;
+                case matri < 5:
+                    mensaje = "El número es menor que 5";
+                    break;
+                case matri === 5:
+                    mensaje = "El número es igual a 5";
+                    break;
+                default:
+                    mensaje = "El número no se puede comparar";
+            }
+            
+
             if(meta<matri){
                 console.log('esto es el meta : ', meta);
                 console.log('esto es el matri : ', matri);
