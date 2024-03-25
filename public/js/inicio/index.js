@@ -1,4 +1,4 @@
-console.log('otro cambio 111');
+console.log('otro cambio 333');
 var meta = null;
 $(function() {
     moment.locale('es');
@@ -79,7 +79,9 @@ function countDataLeads(desde, hasta){
                 var matri = response.matriculados['matriculados']
             }
             porcentaje = (matri / meta_leads)*100
-            switch (true) {
+            $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
+            porcentajeMatriculado.update(Math.round(porcentaje))
+            /* switch (true) {
                 case matri > meta_leads:
                     $("#barraMatriculado").css({"width": "100%"});
                     $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
@@ -91,7 +93,7 @@ function countDataLeads(desde, hasta){
                 default:
                     $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
                     porcentajeMatriculado.update(Math.round(porcentaje))
-            }
+            } */
             countUpMatriculados.update(matri)
             countUpPerdidos.update(response.perdidos['perdidos'])
             countUpNoContactados.update(response.noContactados['noContactados'])

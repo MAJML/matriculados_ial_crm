@@ -57,7 +57,7 @@
             <div class="w-full bg-white flex items-center justify-center px-5 py-5">
                 <div class="bg-gray-100 text-black-500 rounded shadow-xl py-5 px-5 w-full">
                     <div class="flex w-full">
-                        <h3 class="text-lg font-semibold leading-tight flex-1">TOTAL LEADS MATRICULADOS</h3>
+                        <h3 class="text-lg font-semibold leading-tight flex-1">TOTAL LEADS MATRICULADOS CARRERAS</h3>
                         <div class="relative h-5 leading-none">
                             <button class="text-xl text-gray-900 hover:text-gray-500 h-6 focus:outline-none">
                                 <i class="mdi"></i>
@@ -117,6 +117,77 @@
                                     </div>
                                     <div class="font-medium text-lg text-black">
                                         <span id="countLeadsEntrantes">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full bg-white flex items-center justify-center px-5 py-5 mt-10">
+                <div class="bg-gray-100 text-black-500 rounded shadow-xl py-5 px-5 w-full">
+                    <div class="flex w-full">
+                        <h3 class="text-lg font-semibold leading-tight flex-1">TOTAL LEADS MATRICULADOS CURSOS</h3>
+                        <div class="relative h-5 leading-none">
+                            <button class="text-xl text-gray-900 hover:text-gray-500 h-6 focus:outline-none">
+                                <i class="mdi"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden transition-all duration-500">
+                        <div>
+                            <div class="pb-4 lg:pb-6">
+                                <h4 class="text-2xl lg:text-3xl text-black font-semibold leading-tight inline-block"
+                                    id="countMatriculadosCursos">0
+                                </h4>
+                            </div>
+                            <div class="pb-4 lg:pb-6">
+                                <span class="text-green-600 font-semibold"><span id="porcentajeMatriculadoCursos"></span>%</span>
+                                <div
+                                    class="overflow-hidden rounded-full h-3 bg-slate-200 flex transition-all duration-500 w-full">
+                                    <div class="h-full bg-green-600" id="barraMatriculadoCursos" style="width:0%"></div>
+                                </div>
+                            </div>
+                            <div class="flex -mx-4">
+                                <div class="w-1/3 px-4 border-l border-gray-700">
+                                    <div class="text-sm">
+                                        <span
+                                            class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-blue-500">&nbsp;</span>
+                                        <span class="align-middle text-blue-500 font-medium">&nbsp; Meta</span>
+                                    </div>
+                                    <div class="font-medium text-lg text-black">
+                                        <span id="metaLeadsCursos">0</span>
+                                    </div>
+                                </div>
+                                <div class="w-1/3 px-4 border-l border-gray-700">
+                                    <div class="text-sm">
+                                        <span
+                                            class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-red-400">&nbsp;</span>
+                                        <span class="align-middle text-red-500 font-medium">&nbsp; No Contactados</span>
+                                    </div>
+                                    <div class="font-medium text-lg text-black">
+                                        <span id="countNoContactadosCursos">0</span>
+                                    </div>
+                                </div>
+                                <div class="w-1/3 px-4 border-l border-gray-700">
+                                    <div class="text-sm">
+                                        <span
+                                            class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-red-300">&nbsp;</span>
+                                        <span class="align-middle text-red-500 font-medium">&nbsp; Perdidos</span>
+                                    </div>
+                                    <div class="font-medium text-lg text-black">
+                                        <span id="countPerdidosCursos">0</span>
+                                    </div>
+                                </div>
+                                <div class="w-1/3 px-4 border-l border-gray-700">
+                                    <div class="text-sm">
+                                        <span
+                                            class="inline-block w-2 h-2 rounded-full mr-1 align-middle bg-sky-300">&nbsp;</span>
+                                        <span class="align-middle text-sky-500 font-medium">&nbsp; Leads Nuevos</span>
+                                    </div>
+                                    <div class="font-medium text-lg text-black">
+                                        <span id="countLeadsEntrantesCursos">3</span>
                                     </div>
                                 </div>
                             </div>
