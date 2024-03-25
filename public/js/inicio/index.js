@@ -1,4 +1,4 @@
-console.log('otro cambio 222');
+console.log('otro cambio 111');
 var meta = null;
 $(function() {
     moment.locale('es');
@@ -65,62 +65,32 @@ function metaLeads(){
 }
 
 function countDataLeads(desde, hasta){
-    metaLeads()
     $.ajax({
         type:"POST",
         dataType:"json",
         url: baseurl+'Inicio/dataLeadsCount',
         data : {desde: desde, hasta:hasta},
         success:function(response){
-            /* console.log(response); */
-            /* var meta=10 */
+            meta_leads = response.meta_leads['meta']
+            $("#metaLeads").html(meta_leads)
             if(response.matriculados['matriculados'] == "" || response.matriculados['matriculados'] == null){
                 var matri = 0
             }else{
                 var matri = response.matriculados['matriculados']
             }
-            porcentaje = (matri / meta)*100
-            var mensaje;
-            
-            /* switch (true) {
-                case matri > 5:
-                    mensaje = "El número es mayor que 5";
+            porcentaje = (matri / meta_leads)*100
+            switch (true) {
+                case matri > meta_leads:
+                    $("#barraMatriculado").css({"width": "100%"});
+                    $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
                     break;
-                case matri < 5:
-                    mensaje = "El número es menor que 5";
-                    break;
-                case matri === 5:
-                    mensaje = "El número es igual a 5";
+                case matri === meta_leads:
+                    $("#barraMatriculado").css({"width": "100%"});
+                    $("#porcentajeMatriculado").html('Completado')
                     break;
                 default:
-                    mensaje = "El número no se puede comparar";
-            } */
-            
-
-            if(meta<matri){
-                /* console.log('esto es el meta : ', meta);
-                console.log('esto es el matri : ', matri);
-                console.log('el matri es mayor');
-                console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('==========================='); */
-                $("#barraMatriculado").css({"width": "100%"});
-                $("#porcentajeMatriculado").html('¡waooooo!, estamos por encima de la meta')
-            }else if(meta==matri){
-                /* console.log('esto es el meta : ', meta);
-                console.log('esto es el matri : ', matri);
-                console.log('el matri es igual al meta');
-                console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('==========================='); */
-                $("#barraMatriculado").css({"width": "100%"});
-                $("#porcentajeMatriculado").html('Completado')
-            }else{
-                $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
-                porcentajeMatriculado.update(Math.round(porcentaje))
-                /* console.log('esto es el meta : ', meta);
-                console.log('esto es el matri : ', matri);
-                console.log('esto es el else xd');
-                console.log('esto es el porcentaje: ', Math.round(porcentaje));
-                console.log('==========================='); */
+                    $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
+                    porcentajeMatriculado.update(Math.round(porcentaje))
             }
             countUpMatriculados.update(matri)
             countUpPerdidos.update(response.perdidos['perdidos'])
@@ -191,7 +161,7 @@ function asesores_seguimiento(desde, hasta){
 
 
 setInterval(btn, 10000);
-metaLeads()
+/* metaLeads() */
 
 function btn(){
     desde = moment($('#reportrange').data('daterangepicker').startDate._d).format("YYYY-MM-DD");

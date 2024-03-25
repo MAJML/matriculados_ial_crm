@@ -40,7 +40,8 @@ class Inicio
         $perdidos = $this->model->countPerdidos($desde, $hasta);
         $noContactados = $this->model->countNoContactados($desde, $hasta);
         $leadsEntrantes = $this->model->countLeadsEntrantes($desde, $hasta);
-        View::renderJson(['matriculados' => $matriculados, 'perdidos' => $perdidos, 'noContactados' => $noContactados, 'leadsEntrantes' => $leadsEntrantes]);
+        $meta_leads = $this->model->metaLeads();
+        View::renderJson(['matriculados' => $matriculados, 'perdidos' => $perdidos, 'noContactados' => $noContactados, 'leadsEntrantes' => $leadsEntrantes, 'meta_leads' => $meta_leads]);
     }
 
     public function dataAsesoresSeguimiento()
