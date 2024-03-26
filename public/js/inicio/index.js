@@ -28,11 +28,11 @@ $(function() {
 
 });
 
-const porcentajeMatriculado = new CountUp('porcentajeMatriculado', 0, 0, 0, 3, {
+const porcentajeMatriculadoCarrera = new CountUp('porcentajeMatriculado', 0, 0, 0, 3, {
     prefix: ""
 });
 
-const countUpMatriculados = new CountUp('countMatriculados', 0, 0, 0, 3, {
+const countUpMatriculadosCarrera = new CountUp('countMatriculados', 0, 0, 0, 3, {
     prefix: ""
 });
 const countUpPerdidos = new CountUp('countPerdidos', 0, 0, 0, 3, {
@@ -44,11 +44,16 @@ const countUpNoContactados = new CountUp('countNoContactados', 0, 0, 0, 3, {
 const countUpLeadsEntrantes = new CountUp('countLeadsEntrantes', 0, 0, 0, 3, {
     prefix: ""
 });
-porcentajeMatriculado.start();
-countUpMatriculados.start();
+const countUpMatriculadosCursos = new CountUp('countMatriculadosCursos', 0, 0, 0, 3, {
+    prefix: ""
+})
+
+porcentajeMatriculadoCarrera.start();
+countUpMatriculadosCarrera.start();
 countUpPerdidos.start();
 countUpNoContactados.start();
 countUpLeadsEntrantes.start();
+countUpMatriculadosCursos.start();
 
 function metaLeads(){
     $.ajax({
@@ -71,16 +76,17 @@ function countDataLeads(desde, hasta){
         url: baseurl+'Inicio/dataLeadsCount',
         data : {desde: desde, hasta:hasta},
         success:function(response){
+            console.log("ajax data leads : ",response);
             meta_leads = response.meta_leads['meta']
             $("#metaLeads").html(meta_leads)
-            if(response.matriculados['matriculados'] == "" || response.matriculados['matriculados'] == null){
+            if(response.matriculadosCarreras['matriculados'] == "" || response.matriculadosCarreras['matriculados'] == null){
                 var matri = 0
             }else{
-                var matri = response.matriculados['matriculados']
+                var matri = response.matriculadosCarreras['matriculados']
             }
             porcentaje = (matri / meta_leads)*100
             $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
-            porcentajeMatriculado.update(Math.round(porcentaje))
+            porcentajeMatriculadoCarrera.update(Math.round(porcentaje))
             /* switch (true) {
                 case matri > meta_leads:
                     $("#barraMatriculado").css({"width": "100%"});
@@ -94,7 +100,8 @@ function countDataLeads(desde, hasta){
                     $("#barraMatriculado").css({"width": Math.round(porcentaje)+"%"});
                     porcentajeMatriculado.update(Math.round(porcentaje))
             } */
-            countUpMatriculados.update(matri)
+            countUpMatriculadosCarrera.update(matri)
+            countUpMatriculadosCursos.update(response.matriculadosCursos['matriculados']);
             countUpPerdidos.update(response.perdidos['perdidos'])
             countUpNoContactados.update(response.noContactados['noContactados'])
             countUpLeadsEntrantes.update(response.leadsEntrantes['leadsEntrantes'])

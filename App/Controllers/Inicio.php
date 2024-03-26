@@ -36,12 +36,13 @@ class Inicio
     {
         $desde = $_POST['desde'];
         $hasta = $_POST['hasta'];
-        $matriculados = $this->model->countMatriculados($desde, $hasta);
+        $matriculadosCarreras = $this->model->countMatriculadosCarreras($desde, $hasta);
+        $matriculadosCursos = $this->model->countMatriculadosCursos($desde, $hasta);
         $perdidos = $this->model->countPerdidos($desde, $hasta);
         $noContactados = $this->model->countNoContactados($desde, $hasta);
         $leadsEntrantes = $this->model->countLeadsEntrantes($desde, $hasta);
         $meta_leads = $this->model->metaLeads();
-        View::renderJson(['matriculados' => $matriculados, 'perdidos' => $perdidos, 'noContactados' => $noContactados, 'leadsEntrantes' => $leadsEntrantes, 'meta_leads' => $meta_leads]);
+        View::renderJson(['matriculadosCarreras' => $matriculadosCarreras, 'matriculadosCursos' => $matriculadosCursos, 'perdidos' => $perdidos, 'noContactados' => $noContactados, 'leadsEntrantes' => $leadsEntrantes, 'meta_leads' => $meta_leads]);
     }
 
     public function dataAsesoresSeguimiento()

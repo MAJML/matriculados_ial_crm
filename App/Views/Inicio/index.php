@@ -128,7 +128,7 @@
             <div class="w-full bg-white flex items-center justify-center px-5 py-5 mt-10">
                 <div class="bg-gray-100 text-black-500 rounded shadow-xl py-5 px-5 w-full">
                     <div class="flex w-full">
-                        <h3 class="text-lg font-semibold leading-tight flex-1">TOTAL LEADS MATRICULADOS CURSOS</h3>
+                        <h3 class="text-lg font-semibold leading-tight flex-1 text-green-600">TOTAL LEADS MATRICULADOS CURSOS</h3>
                         <div class="relative h-5 leading-none">
                             <button class="text-xl text-gray-900 hover:text-gray-500 h-6 focus:outline-none">
                                 <i class="mdi"></i>
@@ -138,18 +138,18 @@
                     <div class="relative overflow-hidden transition-all duration-500">
                         <div>
                             <div class="pb-4 lg:pb-6">
-                                <h4 class="text-2xl lg:text-3xl text-black font-semibold leading-tight inline-block"
+                                <h4 class="text-2xl lg:text-3xl text-green-600 font-semibold leading-tight inline-block"
                                     id="countMatriculadosCursos">0
                                 </h4>
                             </div>
-                            <div class="pb-4 lg:pb-6">
+                            <!-- <div class="pb-4 lg:pb-6">
                                 <span class="text-green-600 font-semibold"><span id="porcentajeMatriculadoCursos"></span>%</span>
                                 <div
                                     class="overflow-hidden rounded-full h-3 bg-slate-200 flex transition-all duration-500 w-full">
                                     <div class="h-full bg-green-600" id="barraMatriculadoCursos" style="width:0%"></div>
                                 </div>
-                            </div>
-                            <div class="flex -mx-4">
+                            </div> -->
+                            <!-- <div class="flex -mx-4">
                                 <div class="w-1/3 px-4 border-l border-gray-700">
                                     <div class="text-sm">
                                         <span
@@ -190,7 +190,7 @@
                                         <span id="countLeadsEntrantesCursos">3</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

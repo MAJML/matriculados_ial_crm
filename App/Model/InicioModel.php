@@ -6,13 +6,25 @@ use Core\Model;
 
 class InicioModel extends Model
 {
-    public function countMatriculados($desde, $hasta)
+    public function countMatriculadosCarreras($desde, $hasta)
     {
         $query = $this->db->prepare("SELECT count(*) + 
-        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '".$desde."' and '".$hasta."') as matriculados
+        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '".$desde."' and '".$hasta."' and modalidad_adicional_id=1) as matriculados
         from clientes CL
         left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
-        where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=4 
+        where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=4 and CL.modalidad_id=1
+        and CLS.estado_detalle_id=8 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
+        $query->execute();
+        return $query->fetch();
+    }
+
+    public function countMatriculadosCursos($desde, $hasta)
+    {
+        $query = $this->db->prepare("SELECT count(*) + 
+        (SELECT count(*) FROM cliente_matriculas WHERE date(created_at) between '".$desde."' and '".$hasta."' and modalidad_adicional_id=2) as matriculados
+        from clientes CL
+        left join cliente_seguimientos CLS on CLS.cliente_id=CL.id
+        where CL.deleted_at is null and CLS.deleted_at is null and CLS.estado_id=4 and CL.modalidad_id=2
         and CLS.estado_detalle_id=8 and date(CL.ultimo_contacto) between '".$desde."' and '".$hasta."'");
         $query->execute();
         return $query->fetch();
