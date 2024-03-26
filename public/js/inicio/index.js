@@ -1,4 +1,4 @@
-console.log('otro cambio 333');
+console.log('otro cambio 123');
 var meta = null;
 $(function() {
     moment.locale('es');
@@ -76,7 +76,7 @@ function countDataLeads(desde, hasta){
         url: baseurl+'Inicio/dataLeadsCount',
         data : {desde: desde, hasta:hasta},
         success:function(response){
-            console.log("ajax data leads : ",response);
+            /* console.log("ajax data leads : ",response); */
             meta_leads = response.meta_leads['meta']
             $("#metaLeads").html(meta_leads)
             if(response.matriculadosCarreras['matriculados'] == "" || response.matriculadosCarreras['matriculados'] == null){
